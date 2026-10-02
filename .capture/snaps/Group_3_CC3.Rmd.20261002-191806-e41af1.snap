@@ -154,15 +154,14 @@ nrow(inner_join(data1, data2, by = c("ID","Date")))
 nrow(left_join(data1, data2, by = c("ID", "Date")))
 
 # right
-nrow(right_join(data1, data2, by = c("ID", "Date")))
-
+nrow(left_join(data1, data2, by = c("ID", "Date")))
 # full
-nrow(full_join(data1, data2, by = c("ID", "Date")))
+
 ```
 
 **Question 3:** The four numbers differ. Explain which rows each verb keeps, and what that tells you about samples that are in one file but not the other.
 
-**Answer:** For inner_join, only rows that match in both datasets are kept. In right_join, all the rows in dataset2 are kept and only the ones that match from dataset1. Left_join is the opposite in that all columns are kept in dataset1 and only the matching are kept in dataset2. Full_join keeps all rows from both datasets. There are 6 rows that are unique to data2, 12 rows that are unique to data1 and therefore 18 rows that are only present in one of the two files.
+**Answer:**
 
 # Part 3 — Dates, summaries and ordering
 

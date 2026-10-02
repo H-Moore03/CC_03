@@ -11,7 +11,7 @@
 
 <meta name="author" content="Group # — names and student numbers in the chunk below" />
 
-<meta name="date" content="2026-10-01" />
+<meta name="date" content="2026-10-02" />
 
 <title>BIOL343 Coding Challenge 3</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">BIOL343 Coding Challenge 3</h1>
 <h4 class="author">Group # — names and student numbers in the chunk
 below</h4>
-<h4 class="date">01 October 2026</h4>
+<h4 class="date">02 October 2026</h4>
 
 </div>
 
@@ -438,15 +438,16 @@ that sets the separator.</p>
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<pre class="r"><code>data3&lt;-read_delim(&quot;Dataset3_1.csv&quot;, delim = &quot;;&quot;)</code></pre>
-<pre><code>## Rows: 792 Columns: 1
+<pre class="r"><code>data3&lt;-read_delim(&quot;Dataset3 (4).csv&quot;, delim = &quot;;&quot;)</code></pre>
+<pre><code>## Rows: 792 Columns: 4
 ## ── Column specification ──────────────
 ## Delimiter: &quot;;&quot;
-## chr (1): ID;&quot;Date&quot;;&quot;PC1&quot;;&quot;PC2&quot;
+## chr  (2): PC1, PC2
+## dbl  (1): ID
+## date (1): Date
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<pre class="r"><code>?read.csv</code></pre>
 </div>
 <div id="inspect-the-data" class="section level2">
 <h2>3. Inspect the data</h2>
@@ -478,17 +479,26 @@ that sets the separator.</p>
 ##   .. )
 ##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
 <pre class="r"><code>str(data3)</code></pre>
-<pre><code>## spc_tbl_ [792 × 1] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
-##  $ ID;&quot;Date&quot;;&quot;PC1&quot;;&quot;PC2&quot;: chr [1:792] &quot;3140930;2021-03-02;\&quot;0.0876666666666667\&quot;;\&quot;1.719\&quot;&quot; &quot;9478460;2021-10-07;\&quot;-0.476666666666667\&quot;;\&quot;0.198\&quot;&quot; &quot;3008241;2021-01-20;\&quot;-0.0643333333333333\&quot;;\&quot;1.944\&quot;&quot; &quot;3131659;2021-05-15;\&quot;-0.784\&quot;;\&quot;-3.525\&quot;&quot; ...
+<pre><code>## spc_tbl_ [792 × 4] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ ID  : num [1:792] 3140930 9478460 3008241 3131659 4629334 ...
+##  $ Date: Date[1:792], format:  ...
+##  $ PC1 : chr [1:792] &quot;0.0876666666666667&quot; &quot;-0.476666666666667&quot; &quot;-0.0643333333333333&quot; &quot;-0.784&quot; ...
+##  $ PC2 : chr [1:792] &quot;1.719&quot; &quot;0.198&quot; &quot;1.944&quot; &quot;-3.525&quot; ...
 ##  - attr(*, &quot;spec&quot;)=
 ##   .. cols(
-##   ..   `ID;&quot;Date&quot;;&quot;PC1&quot;;&quot;PC2&quot;` = col_character()
+##   ..   ID = col_double(),
+##   ..   Date = col_date(format = &quot;&quot;),
+##   ..   PC1 = col_character(),
+##   ..   PC2 = col_character()
 ##   .. )
 ##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
 <p><strong>Question 1:</strong> Which columns did R import as a type you
 did not expect, and what in the raw files caused it? (Look at the values
 in those columns.)</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> It imported the PC1 and PC2 columns as a
+type that I did not expect. They were imported as characters rather than
+numerics. This happed due to words existing in those columns. R simply
+interpreted the whole column as characters instead.</p>
 </div>
 <div id="fix-the-missing-values" class="section level2">
 <h2>4. Fix the missing values</h2>
@@ -499,11 +509,32 @@ read as a number with <code>NA</code> (the warning
 <code>NAs introduced by coercion</code> is expected here). Then count
 the missing values in each converted column with
 <code>sum(is.na())</code> (Chapter 10, <em>is.na()</em>).</p>
-<pre class="r"><code># data2 &lt;-
+<pre class="r"><code>data2 &lt;- data2 %&gt;%
+    mutate(PC1 = as.numeric(PC1), PC2 = as.numeric(PC2))</code></pre>
+<pre><code>## Warning: There were 2 warnings in `mutate()`.
+## The first warning was:
+## ℹ In argument: `PC1 =
+##   as.numeric(PC1)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+## ℹ Run ]8;;x-r-run:dplyr::last_dplyr_warnings()dplyr::last_dplyr_warnings()]8;; to
+##   see the 1 remaining warning.</code></pre>
+<pre class="r"><code>data3 &lt;- data3 %&gt;%
+    mutate(PC1 = as.numeric(PC1), PC2 = as.numeric(PC2))</code></pre>
+<pre><code>## Warning: There were 2 warnings in `mutate()`.
+## The first warning was:
+## ℹ In argument: `PC1 =
+##   as.numeric(PC1)`.
+## Caused by warning:
+## ! NAs introduced by coercion
+## ℹ Run ]8;;x-r-run:dplyr::last_dplyr_warnings()dplyr::last_dplyr_warnings()]8;; to
+##   see the 1 remaining warning.</code></pre>
+<pre class="r"><code># count the NAs
 
-# data3 &lt;-
-
-# count the NAs</code></pre>
+sum(is.na(data3))</code></pre>
+<pre><code>## [1] 11</code></pre>
+<pre class="r"><code>sum(is.na(data2))</code></pre>
+<pre><code>## [1] 12</code></pre>
 </div>
 <div id="rename-the-measurement-columns" class="section level2">
 <h2>5. Rename the measurement columns</h2>
