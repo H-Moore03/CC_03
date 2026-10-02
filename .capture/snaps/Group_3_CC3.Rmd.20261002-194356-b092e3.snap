@@ -195,17 +195,13 @@ print(year_summary)
 
 **Question 4:** Does concentration differ between the two years? Answer in one or two sentences from the table.
 
-**Answer:** Concentration does differ between years. In 2021, the concentration was 10.2 and in 2022 the concentration was 0.964.
+**Answer:** 
 
 ## 11. The five highest concentrations
 
 Use `arrange()` with `desc()` (Chapter 10, *arrange() Rows*) and `select()` (Chapter 10, *select() Columns*) to show the five samples with the highest `Conc`, with only the `ID`, `Year` and `Conc` columns. Pipe the steps together with `%>%` (Chapter 10, *%>%*).
 
 ```{r top-five}
-top_data <- all_data %>%
-    arrange(desc(Conc)) %>%
-    select(ID, Year, Conc) %>%
-    head(., 5)
 
 ```
 

@@ -203,9 +203,8 @@ Use `arrange()` with `desc()` (Chapter 10, *arrange() Rows*) and `select()` (Cha
 
 ```{r top-five}
 top_data <- all_data %>%
-    arrange(desc(Conc)) %>%
     select(ID, Year, Conc) %>%
-    head(., 5)
+    
 
 ```
 

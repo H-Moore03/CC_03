@@ -421,7 +421,7 @@ was exported by a collaborator whose software uses a
 that sets the separator.</p>
 <pre class="r"><code>data1 &lt;-read_csv(&quot;Dataset1.csv&quot;)</code></pre>
 <pre><code>## Rows: 794 Columns: 3
-## ── Column specification ──────────────
+## ── Column specification ────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## dbl  (2): ID, Conc
 ## date (1): Date
@@ -430,7 +430,7 @@ that sets the separator.</p>
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>data2 &lt;-read_csv(&quot;Dataset2.csv&quot;)</code></pre>
 <pre><code>## Rows: 788 Columns: 4
-## ── Column specification ──────────────
+## ── Column specification ────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (2): PC1, PC2
 ## dbl  (1): ID
@@ -440,7 +440,7 @@ that sets the separator.</p>
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <pre class="r"><code>data3&lt;-read_delim(&quot;Dataset3 (4).csv&quot;, delim = &quot;;&quot;)</code></pre>
 <pre><code>## Rows: 792 Columns: 4
-## ── Column specification ──────────────
+## ── Column specification ────────────────────────────────────────────
 ## Delimiter: &quot;;&quot;
 ## chr  (2): PC1, PC2
 ## dbl  (1): ID
@@ -455,7 +455,7 @@ that sets the separator.</p>
 <pre class="r"><code>str(data1)</code></pre>
 <pre><code>## spc_tbl_ [794 × 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ ID  : num [1:794] 1291543 4972386 9934712 2711078 8171692 ...
-##  $ Date: Date[1:794], format:  ...
+##  $ Date: Date[1:794], format: &quot;2022-05-03&quot; ...
 ##  $ Conc: num [1:794] 3.131 12.808 0.211 0.439 0.327 ...
 ##  - attr(*, &quot;spec&quot;)=
 ##   .. cols(
@@ -467,7 +467,7 @@ that sets the separator.</p>
 <pre class="r"><code>str(data2)</code></pre>
 <pre><code>## spc_tbl_ [788 × 4] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ ID  : num [1:788] 3288208 7848312 7272390 6217553 8941937 ...
-##  $ Date: Date[1:788], format:  ...
+##  $ Date: Date[1:788], format: &quot;2022-12-14&quot; ...
 ##  $ PC1 : chr [1:788] &quot;-0.391&quot; &quot;1.033&quot; &quot;2.472&quot; &quot;2.137&quot; ...
 ##  $ PC2 : chr [1:788] &quot;1.377&quot; &quot;-1.116&quot; &quot;-5.509&quot; &quot;-0.606&quot; ...
 ##  - attr(*, &quot;spec&quot;)=
@@ -481,7 +481,7 @@ that sets the separator.</p>
 <pre class="r"><code>str(data3)</code></pre>
 <pre><code>## spc_tbl_ [792 × 4] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ ID  : num [1:792] 3140930 9478460 3008241 3131659 4629334 ...
-##  $ Date: Date[1:792], format:  ...
+##  $ Date: Date[1:792], format: &quot;2021-03-02&quot; ...
 ##  $ PC1 : chr [1:792] &quot;0.0876666666666667&quot; &quot;-0.476666666666667&quot; &quot;-0.0643333333333333&quot; &quot;-0.784&quot; ...
 ##  $ PC2 : chr [1:792] &quot;1.719&quot; &quot;0.198&quot; &quot;1.944&quot; &quot;-3.525&quot; ...
 ##  - attr(*, &quot;spec&quot;)=
@@ -513,22 +513,18 @@ the missing values in each converted column with
     mutate(PC1 = as.numeric(PC1), PC2 = as.numeric(PC2))</code></pre>
 <pre><code>## Warning: There were 2 warnings in `mutate()`.
 ## The first warning was:
-## ℹ In argument: `PC1 =
-##   as.numeric(PC1)`.
+## ℹ In argument: `PC1 = as.numeric(PC1)`.
 ## Caused by warning:
 ## ! NAs introduced by coercion
-## ℹ Run ]8;;x-r-run:dplyr::last_dplyr_warnings()dplyr::last_dplyr_warnings()]8;; to
-##   see the 1 remaining warning.</code></pre>
+## ℹ Run ]8;;x-r-run:dplyr::last_dplyr_warnings()dplyr::last_dplyr_warnings()]8;; to see the 1 remaining warning.</code></pre>
 <pre class="r"><code>data3 &lt;- data3 %&gt;%
     mutate(PC1 = as.numeric(PC1), PC2 = as.numeric(PC2))</code></pre>
 <pre><code>## Warning: There were 2 warnings in `mutate()`.
 ## The first warning was:
-## ℹ In argument: `PC1 =
-##   as.numeric(PC1)`.
+## ℹ In argument: `PC1 = as.numeric(PC1)`.
 ## Caused by warning:
 ## ! NAs introduced by coercion
-## ℹ Run ]8;;x-r-run:dplyr::last_dplyr_warnings()dplyr::last_dplyr_warnings()]8;; to
-##   see the 1 remaining warning.</code></pre>
+## ℹ Run ]8;;x-r-run:dplyr::last_dplyr_warnings()dplyr::last_dplyr_warnings()]8;; to see the 1 remaining warning.</code></pre>
 <pre class="r"><code># count the NAs
 
 sum(is.na(data3))</code></pre>
@@ -547,10 +543,21 @@ where they came from, for example
 <code>invert_PC1</code>/<code>invert_PC2</code> and
 <code>chem_PC1</code>/<code>chem_PC2</code> (lakes). Check the result
 with <code>names()</code>.</p>
+<pre class="r"><code>data2&lt;-rename(data2, invert_PC1 = PC1)
+data2&lt;-rename(data2, invert_PC2 = PC2)
+names(data2)</code></pre>
+<pre><code>## [1] &quot;ID&quot;         &quot;Date&quot;       &quot;invert_PC1&quot; &quot;invert_PC2&quot;</code></pre>
+<pre class="r"><code>data3&lt;- rename(data3, chem_PC1 = PC1)
+data3&lt;- rename(data3, chem_PC2 = PC2)
+names(data3)</code></pre>
+<pre><code>## [1] &quot;ID&quot;       &quot;Date&quot;     &quot;chem_PC1&quot; &quot;chem_PC2&quot;</code></pre>
 <p><strong>Question 2:</strong> What would have happened to these column
 names if you had joined <code>data2</code> and <code>data3</code>
 without renaming? (Try it in the Console if you are not sure.)</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> If I had joined the two columns together
+without renaming r would have added .x and .y suffixes in order to
+differentiate. There would be a PC1.x and a PC2.x as well as a PC1.y and
+a PC2.y.</p>
 </div>
 <div id="make-sure-date-is-a-date" class="section level2">
 <h2>6. Make sure <code>Date</code> is a date</h2>
@@ -559,6 +566,12 @@ the three objects. If any of them is <code>character</code>, convert it
 with <code>ymd()</code> from <code>lubridate</code> (Chapter 10,
 <em>date Objects</em>). All three must be the same class before you
 join, or the join will refuse to match them.</p>
+<pre class="r"><code>class(data1$Date)</code></pre>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<pre class="r"><code>class(data2$Date)</code></pre>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<pre class="r"><code>class(data3$Date)</code></pre>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
 </div>
 </div>
 <div id="part-2-join-the-files" class="section level1">
@@ -570,7 +583,11 @@ join, or the join will refuse to match them.</p>
 rows that have the same <code>ID</code> <strong>and</strong> the same
 <code>Date</code>: <code>by = c(&quot;ID&quot;, &quot;Date&quot;)</code>. Two joins are
 needed. Check the dimensions.</p>
-<pre class="r"><code># all_data &lt;-</code></pre>
+<pre class="r"><code>all_data &lt;- data1 %&gt;%
+    full_join(data2, by = c(&quot;ID&quot;, &quot;Date&quot;)) %&gt;%
+    full_join(data3, by = c(&quot;ID&quot;, &quot;Date&quot;))
+dim(all_data)</code></pre>
+<pre><code>## [1] 800   7</code></pre>
 </div>
 <div id="compare-the-join-verbs" class="section level2">
 <h2>8. Compare the join verbs</h2>
@@ -580,16 +597,27 @@ number of rows returned by <code>inner_join()</code>,
 <code>full_join()</code> (all <code>by = c(&quot;ID&quot;, &quot;Date&quot;)</code>).
 <code>nrow()</code> is enough; do not print the tables.</p>
 <pre class="r"><code># inner
-
-# left
-
-# right
-
-# full</code></pre>
+nrow(inner_join(data1, data2, by = c(&quot;ID&quot;,&quot;Date&quot;)))</code></pre>
+<pre><code>## [1] 782</code></pre>
+<pre class="r"><code># left
+nrow(left_join(data1, data2, by = c(&quot;ID&quot;, &quot;Date&quot;)))</code></pre>
+<pre><code>## [1] 794</code></pre>
+<pre class="r"><code># right
+nrow(right_join(data1, data2, by = c(&quot;ID&quot;, &quot;Date&quot;)))</code></pre>
+<pre><code>## [1] 788</code></pre>
+<pre class="r"><code># full
+nrow(full_join(data1, data2, by = c(&quot;ID&quot;, &quot;Date&quot;)))</code></pre>
+<pre><code>## [1] 800</code></pre>
 <p><strong>Question 3:</strong> The four numbers differ. Explain which
 rows each verb keeps, and what that tells you about samples that are in
 one file but not the other.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> For inner_join, only rows that match in both
+datasets are kept. In right_join, all the rows in dataset2 are kept and
+only the ones that match from dataset1. Left_join is the opposite in
+that all columns are kept in dataset1 and only the matching are kept in
+dataset2. Full_join keeps all rows from both datasets. There are 6 rows
+that are unique to data2, 12 rows that are unique to data1 and therefore
+18 rows that are only present in one of the two files.</p>
 </div>
 </div>
 <div id="part-3-dates-summaries-and-ordering" class="section level1">
@@ -600,6 +628,10 @@ one file but not the other.</p>
 <code>all_data</code> with <code>mutate()</code> and the
 <code>lubridate</code> functions <code>year()</code> and
 <code>month()</code> (Chapter 10, <em>Extracting Components</em>).</p>
+<pre class="r"><code>all_data&lt;- all_data %&gt;%
+    mutate(
+        Year = year(Date),
+        Month = month(Date))</code></pre>
 </div>
 <div id="summarise-concentration-by-year" class="section level2">
 <h2>10. Summarise concentration by year</h2>
@@ -608,10 +640,22 @@ one file but not the other.</p>
 deviation of <code>Conc</code> for each <code>Year</code>. Remember
 <code>na.rm = TRUE</code> (Chapter 10, <em>NA and na.rm()</em>). Save
 the result as <code>year_summary</code> and print it.</p>
-<pre class="r"><code># year_summary &lt;-</code></pre>
+<pre class="r"><code>year_summary &lt;- all_data %&gt;%
+    group_by(Year) %&gt;%
+    summarise(
+        mean_Conc = mean(Conc, na.rm = TRUE),
+        sd_Conc = sd(Conc, na.rm = TRUE))
+print(year_summary)</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##    Year mean_Conc sd_Conc
+##   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1  2021    10.2      6.14
+## 2  2022     0.964    1.46</code></pre>
 <p><strong>Question 4:</strong> Does concentration differ between the
 two years? Answer in one or two sentences from the table.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> Concentration does differ between years. In
+2021, the concentration was 10.2 and in 2022 the concentration was
+0.964.</p>
 </div>
 <div id="the-five-highest-concentrations" class="section level2">
 <h2>11. The five highest concentrations</h2>
@@ -621,6 +665,10 @@ two years? Answer in one or two sentences from the table.</p>
 <code>Conc</code>, with only the <code>ID</code>, <code>Year</code> and
 <code>Conc</code> columns. Pipe the steps together with
 <code>%&gt;%</code> (Chapter 10, <em>%&gt;%</em>).</p>
+<pre class="r"><code>top_data &lt;- all_data %&gt;%
+    arrange(desc(Conc)) %&gt;%
+    select(ID, Year, Conc) %&gt;%
+    head(., 5)</code></pre>
 </div>
 </div>
 <div id="part-4-reshape" class="section level1">

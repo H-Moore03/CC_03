@@ -52,3 +52,8 @@
 {"chunk":null,"ts":"2026-10-02T18:57:21Z","pid":28036,"engine":"r","severity":"error","render":false,"text":"## Error: object 'Data3' not found"}
 {"chunk":null,"ts":"2026-10-02T19:14:32Z","pid":28036,"engine":"r","severity":"error","render":false,"text":"## Error: argument \"y\" is missing, with no default"}
 {"chunk":null,"ts":"2026-10-02T19:16:52Z","pid":28036,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"innernrow\""}
+{"chunk":null,"ts":"2026-10-02T19:35:46Z","pid":28036,"engine":"r","severity":"error","render":false,"text":"## Error: object 'conc' not found"}
+{"chunk":null,"ts":"2026-10-02T19:36:36Z","pid":28036,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"all_data\""}
+{"chunk":null,"ts":"2026-10-02T19:55:54Z","pid":28036,"engine":"r","severity":"warning","render":false,"warning":"## Warning: path[1]=\"Group_#_CC3.Rmd\": The system cannot find the file specified"}
+{"chunk":null,"ts":"2026-10-02T19:55:54Z","pid":28036,"engine":"r","severity":"warning","render":false,"warning":"## Warning: path[1]=\"Group_-_CC3.Rmd\": The system cannot find the file specified"}
+{"chunk":null,"ts":"2026-10-02T19:55:54Z","pid":28036,"engine":"r","severity":"error","render":false,"text":"## Error: The file 'Group_-_CC3.Rmd' does not exist."}

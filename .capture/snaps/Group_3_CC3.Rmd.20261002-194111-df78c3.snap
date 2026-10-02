@@ -187,25 +187,23 @@ Use `group_by()` and `summarise()` (Chapter 10, *summarise() + group_by()*) to c
 year_summary <- all_data %>%
     group_by(Year) %>%
     summarise(
-        mean_Conc = mean(Conc, na.rm = TRUE),
-        sd_Conc = sd(Conc, na.rm = TRUE))
-print(year_summary)
+        mean_Conc, na.rm = TRUE),
+        as_Conc
+
+    
+    summarise(all_data, na.rm=TRUE) + group_by(Conc)
 
 ```
 
 **Question 4:** Does concentration differ between the two years? Answer in one or two sentences from the table.
 
-**Answer:** Concentration does differ between years. In 2021, the concentration was 10.2 and in 2022 the concentration was 0.964.
+**Answer:**
 
 ## 11. The five highest concentrations
 
 Use `arrange()` with `desc()` (Chapter 10, *arrange() Rows*) and `select()` (Chapter 10, *select() Columns*) to show the five samples with the highest `Conc`, with only the `ID`, `Year` and `Conc` columns. Pipe the steps together with `%>%` (Chapter 10, *%>%*).
 
 ```{r top-five}
-top_data <- all_data %>%
-    arrange(desc(Conc)) %>%
-    select(ID, Year, Conc) %>%
-    head(., 5)
 
 ```
 
