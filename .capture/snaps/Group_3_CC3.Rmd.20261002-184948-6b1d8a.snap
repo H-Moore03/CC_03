@@ -89,6 +89,7 @@ The columns from Question 1 contain words where numbers are expected. Use `mutat
 data2 <- data2 %>%
     mutate(PC1 = as.numeric(PC1), PC2 = as.numeric(PC2))
 
+
 data3 <- data3 %>%
     mutate(PC1 = as.numeric(PC1), PC2 = as.numeric(PC2))
 

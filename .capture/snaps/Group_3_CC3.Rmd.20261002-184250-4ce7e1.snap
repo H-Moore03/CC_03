@@ -56,9 +56,11 @@ data1 <-read_csv("Dataset1.csv")
 
 data2 <-read_csv("Dataset2.csv")
 
-data3<-read_delim("Dataset3 (4).csv", delim = ";")
+data3<-read_delim("Dataset3_2.csv", delim = ";", quote = "")
 
+data3<-read_delim("Dataset3_2.csv", delim = ";")
 
+data3<-read.csv("Dataset3_2")
 
 
 ```
@@ -89,8 +91,16 @@ The columns from Question 1 contain words where numbers are expected. Use `mutat
 data2 <- data2 %>%
     mutate(PC1 = as.numeric(PC1), PC2 = as.numeric(PC2))
 
+
+clean_PC1<-gsub("","", data3$`""PC1""`)
+head(clean_PC1)
+
+num_PC1<-as.numeric(clean_PC1)
+head(num_PC1)
+str(num_PC1)
+
 data3 <- data3 %>%
-    mutate(PC1 = as.numeric(PC1), PC2 = as.numeric(PC2))
+    mutate(`""PC1""` = as.numeric(`""PC1""`), `""PC2"""` = as.numeric(`""PC2"""`))
 
 # count the NAs
 

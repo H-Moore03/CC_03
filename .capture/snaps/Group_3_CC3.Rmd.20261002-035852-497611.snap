@@ -56,10 +56,11 @@ data1 <-read_csv("Dataset1.csv")
 
 data2 <-read_csv("Dataset2.csv")
 
-data3<-read_delim("Dataset3 (4).csv", delim = ";")
+data3<-r
 
+data3<-read_delim("Dataset3_1.csv")
 
-
+?read.csv
 
 ```
 
@@ -73,12 +74,11 @@ str(data1)
 str(data2)
 
 str(data3)
-
 ```
 
 **Question 1:** Which columns did R import as a type you did not expect, and what in the raw files caused it? (Look at the values in those columns.)
 
-**Answer:** It imported the PC1 and PC2 columns as a type that I did not expect. They were imported as characters rather than numerics. This happed due to words existing in those columns. R simply interpreted the whole column as characters instead.
+**Answer:**
 
 ## 4. Fix the missing values
 
@@ -86,16 +86,12 @@ The columns from Question 1 contain words where numbers are expected. Use `mutat
 
 ```{r fix-missing}
 
-data2 <- data2 %>%
-    mutate(PC1 = as.numeric(PC1), PC2 = as.numeric(PC2))
+# data2 <-
 
-data3 <- data3 %>%
-    mutate(PC1 = as.numeric(PC1), PC2 = as.numeric(PC2))
+# data3 <-
 
 # count the NAs
 
-sum(is.na(data3))
-sum(is.na(data2))
 ```
 
 ## 5. Rename the measurement columns
