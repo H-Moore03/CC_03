@@ -1,0 +1,18 @@
+{"chunk":null,"ts":"2026-10-02T02:44:51Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: package ‘tidyverse’ was built under R version 4.5.3"}
+{"chunk":null,"ts":"2026-10-02T02:44:51Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: package ‘ggplot2’ was built under R version 4.5.3"}
+{"chunk":null,"ts":"2026-10-02T02:44:52Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: package ‘tibble’ was built under R version 4.5.2"}
+{"chunk":null,"ts":"2026-10-02T02:44:52Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: package ‘tidyr’ was built under R version 4.5.2"}
+{"chunk":null,"ts":"2026-10-02T02:44:52Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: package ‘readr’ was built under R version 4.5.2"}
+{"chunk":null,"ts":"2026-10-02T02:44:53Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: package ‘purrr’ was built under R version 4.5.2"}
+{"chunk":null,"ts":"2026-10-02T02:44:53Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: package ‘dplyr’ was built under R version 4.5.3"}
+{"chunk":null,"ts":"2026-10-02T02:44:53Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: package ‘stringr’ was built under R version 4.5.2"}
+{"chunk":null,"ts":"2026-10-02T02:44:53Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: package ‘forcats’ was built under R version 4.5.2"}
+{"chunk":null,"ts":"2026-10-02T02:44:53Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: package ‘lubridate’ was built under R version 4.5.2"}
+{"chunk":null,"ts":"2026-10-02T02:45:40Z","pid":15868,"engine":"r","severity":"error","render":false,"text":"## Error: object 'Dataset1.csv' not found"}
+{"chunk":null,"ts":"2026-10-02T02:53:10Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: cannot open file 'Dataset3': No such file or directory"}
+{"chunk":null,"ts":"2026-10-02T02:53:10Z","pid":15868,"engine":"r","severity":"error","render":false,"text":"## Error: cannot open the connection"}
+{"chunk":null,"ts":"2026-10-02T03:18:57Z","pid":15868,"engine":"r","severity":"error","render":false,"text":"## Error: could not find function \"readlines\""}
+{"chunk":null,"ts":"2026-10-02T03:34:36Z","pid":15868,"engine":"r","severity":"error","render":false,"text":"## Error: 'data/Dataset3.csv' does not exist in current working directory ('c:/Users/henry/OneDrive/Documents/BIOL 343/CC_03')."}
+{"chunk":null,"ts":"2026-10-02T03:36:08Z","pid":15868,"engine":"r","severity":"error","render":false,"text":"## Error: 'data/Dataset3.csv' does not exist in current working directory ('c:/Users/henry/OneDrive/Documents/BIOL 343/CC_03')."}
+{"chunk":null,"ts":"2026-10-02T03:41:53Z","pid":15868,"engine":"r","severity":"warning","render":false,"warning":"## Warning: cannot open file 'Dataset3.csv': No such file or directory"}
+{"chunk":null,"ts":"2026-10-02T03:41:53Z","pid":15868,"engine":"r","severity":"error","render":false,"text":"## Error: cannot open the connection"}

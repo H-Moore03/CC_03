@@ -54,7 +54,7 @@ Import each file and save them as `data1`, `data2` and `data3` (Chapter 10, *tib
 
 data1 <-read_csv("Dataset1.csv")
 
-data2 <-read_csv("Dataset2.csv")
+data2 <-readcsv("Dataset2.csv")
 
 data3<-read_delim("Dataset3_1.csv", delim = ";")
 

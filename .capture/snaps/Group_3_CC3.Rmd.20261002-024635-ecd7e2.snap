@@ -52,13 +52,11 @@ Import each file and save them as `data1`, `data2` and `data3` (Chapter 10, *tib
 
 ```{r import-data}
 
-data1 <-read_csv("Dataset1.csv")
+data1 <-read.csv("Dataset1.csv")
 
-data2 <-read_csv("Dataset2.csv")
+# data2 <-
 
-data3<-read_delim("Dataset3_1.csv", delim = ";")
-
-?read.csv
+# data3 <-
 
 ```
 
@@ -67,11 +65,7 @@ data3<-read_delim("Dataset3_1.csv", delim = ";")
 Use `str()` on all three objects.
 
 ```{r inspect-data}
-str(data1)
 
-str(data2)
-
-str(data3)
 ```
 
 **Question 1:** Which columns did R import as a type you did not expect, and what in the raw files caused it? (Look at the values in those columns.)

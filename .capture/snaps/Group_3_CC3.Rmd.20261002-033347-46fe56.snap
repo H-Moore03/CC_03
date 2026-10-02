@@ -52,11 +52,12 @@ Import each file and save them as `data1`, `data2` and `data3` (Chapter 10, *tib
 
 ```{r import-data}
 
-data1 <-read_csv("Dataset1.csv")
+data1 <-read.csv("Dataset1.csv")
 
-data2 <-read_csv("Dataset2.csv")
+data2 <-read.csv("Dataset2.csv")
 
-data3<-read_delim("Dataset3_1.csv", delim = ";")
+data3 <-read.csv("Dataset3.csv", sep=";", header=TRUE)
+
 
 ?read.csv
 
